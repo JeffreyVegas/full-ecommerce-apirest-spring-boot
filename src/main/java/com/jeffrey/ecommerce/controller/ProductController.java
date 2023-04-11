@@ -17,8 +17,9 @@ import java.util.List;
 public class ProductController {
     @Autowired
     ProductService service;
-    @GetMapping("/products/filter")
+    @GetMapping("/filter")
     public ResponseEntity<List<ProductResponseDTO>> getProductsByFilter(@RequestBody ProductFilterDTO filter) {
+
         List<ProductResponseDTO> products = service.findProductsByFilter(filter);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
